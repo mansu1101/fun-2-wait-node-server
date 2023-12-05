@@ -12,10 +12,7 @@
     "dev:doc": "npm run open_docs_win && fastify start -w -l info -P index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "standard",
-    "lint:fix": "standard --fix",
-    "prepare": "husky install",
-    "precommit": "npm audit && npm run lint:fix",
-    "precommit:msg": "commitlint -E HUSKY_GIT_PARAMS"
+    "lint:fix": "standard --fix"
   },
   "repository": {
     "type": "git",
