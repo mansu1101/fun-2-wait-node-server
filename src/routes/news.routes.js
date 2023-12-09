@@ -1,7 +1,7 @@
 module.exports = async (fastify) => {
   const NewsController = require('../controllers/news.controller')(fastify)
   const NewsSchema = require('../schemas/news.schema')
-
+  
   fastify.route({
     method: 'GET',
     url: '/',
@@ -9,4 +9,13 @@ module.exports = async (fastify) => {
     schema: NewsSchema.GET,
     handler: NewsController.get
   })
+
+  fastify.route({
+    method: 'GET',
+    url: '/events',
+    onRequest: [fastify.authenticate],
+    schema: NewsSchema.EVENTS,
+    handler: NewsController.getEvents
+  })
+
 }

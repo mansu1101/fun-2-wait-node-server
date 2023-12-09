@@ -1,4 +1,5 @@
 const { mongooseErrorHandler, logError } = require('../utils/db.error.handler')
+const { getJson } = require("serpapi");
 
 const axios = require('axios')
 
@@ -24,11 +25,25 @@ module.exports = (fastify) => {
           ...result
         }
       } catch (exception) {
-        logError(
-          {},
-          'Error occurred while getting news',
-          mongooseErrorHandler(exception, {})
-        )
+        throw exception
+      }
+    },
+    getEvents: async (data) => {
+      try {
+         const response = await getJson({
+           engine: "google_events",
+           api_key: config.GOOGLE_EVENTS_API_KEY,
+           ...data,
+         });
+         const {events_results } = response;
+       
+         return {
+           docs: events_results,
+           totalDocs: events_results?.length,
+           ...response
+         }
+      } catch (exception) {
+        throw exception
       }
     }
   }

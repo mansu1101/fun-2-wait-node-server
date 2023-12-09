@@ -16,6 +16,10 @@ module.exports = fastifyPlugin((fastify, opts, next) => {
         type: 'string',
         default: ''
       },
+      GOOGLE_EVENTS_API_KEY: {
+        type: 'string',
+        default: ''
+      },
       MONGODB_CONNECTION_URI: {
         type: 'string',
         default: ''
