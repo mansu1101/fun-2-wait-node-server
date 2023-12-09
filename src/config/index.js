@@ -43,30 +43,6 @@ module.exports = fastifyPlugin((fastify, opts, next) => {
         type: 'string',
         default: false
       },
-      AWS_SECRET_ACCESS_KEY: {
-        type: 'string'
-      },
-      AWS_ACCESS_KEY_ID: {
-        type: 'string'
-      },
-      AWS_REGION: {
-        type: 'string'
-      },
-      S3_BUCKET: {
-        type: 'string'
-      },
-      MAIL_AWS_SECRET_ACCESS_KEY: {
-        type: 'string'
-      },
-      MAIL_AWS_ACCESS_KEY_ID: {
-        type: 'string'
-      },
-      MAIL_AWS_REGION: {
-        type: 'string'
-      },
-      MAIL_SENDER: {
-        type: 'string'
-      }
     }
   }
 

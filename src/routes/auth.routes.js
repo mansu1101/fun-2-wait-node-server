@@ -20,10 +20,10 @@ module.exports = async (fastify) => {
   //   handler: AuthController.logout,
   // });
 
-  fastify.route({
-    method: 'GET',
-    url: '/validate/:email',
-    schema: AuthSchema.VALIDATE_USER,
-    handler: AuthController.validateUser
-  })
+  // fastify.route({
+  //   method: 'GET',
+  //   url: '/validate/:email',
+  //   schema: AuthSchema.VALIDATE_USER,
+  //   handler: AuthController.validateUser
+  // })
 }
