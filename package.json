@@ -39,11 +39,11 @@
     "@fastify/swagger-ui": "^1.2.0",
     "@fastify/view": "^7.4.1",
     "aws-sdk": "^2.1295.0",
+    "axios": "^1.6.2",
     "bcrypt-nodejs": "0.0.3",
     "boom": "^7.3.0",
     "close-with-grace": "^1.1.0",
     "ejs": "^3.1.8",
-    "fastify": "^4.9.2",
     "fastify-mailer": "^2.3.1",
     "fastify-multer": "^2.0.3",
     "fastify-plugin": "^4.3.0",
@@ -53,6 +53,7 @@
     "mongoose-array-validator": "^1.0.3",
     "mongoose-paginate-v2": "^1.7.1",
     "multer-s3-transform": "^2.3.2",
+    "newsapi": "^2.4.1",
     "nodemon": "^2.0.20",
     "standard": "^17.0.0",
     "uuid": "^9.0.0",
@@ -60,6 +61,7 @@
   },
   "devDependencies": {
     "commitlint": "^17.4.0",
+    "fastify": "^4.24.3",
     "husky": "^8.0.0"
   },
   "husky": {

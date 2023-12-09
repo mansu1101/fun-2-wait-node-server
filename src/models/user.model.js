@@ -29,19 +29,6 @@ const Address = {
   }
 }
 
-const Controls = {
-  _id: false,
-  roleMappingAccess: {
-    type: Boolean
-  },
-  allowRoleDepartmentMasterAccess: {
-    type: Boolean
-  },
-  tokenManagementAccess: {
-    type: Boolean
-  }
-}
-
 const UserSchema = {
   userId: {
     type: String,

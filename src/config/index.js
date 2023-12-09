@@ -12,6 +12,10 @@ module.exports = fastifyPlugin((fastify, opts, next) => {
       'JWT_SECRET'
     ],
     properties: {
+      WORLD_NEWS_API_KEY: {
+        type: 'string',
+        default: ''
+      },
       MONGODB_CONNECTION_URI: {
         type: 'string',
         default: ''
