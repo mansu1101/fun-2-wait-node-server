@@ -9,4 +9,11 @@ module.exports = async (fastify) => {
     schema: NewsSchema.GET,
     handler: NewsController.get
   })
+  fastify.route({
+    method: 'GET',
+    url: '/events',
+    onRequest: [fastify.authenticate],
+    schema: NewsSchema.GET,
+    handler: NewsController.getEvents
+  })
 }

@@ -65,6 +65,12 @@ const GET_ALL_QUERY_PARAMS = {
   }
 }
 
+const GET_ALL_EVENTS_QUERY_PARAMS = {
+  q: {
+    description: 'query param like Coffee, Events in Austin, Events in Delhi etc..',
+    type: 'string'
+  },
+}
 const RESPONSE_MODEL = {
   ...NEWS_MODEL
 }
@@ -80,4 +86,15 @@ const GET = {
   response: httpResponse('GET', RESPONSE_MODEL)
 }
 
-module.exports = { GET }
+const EVENTS = {
+  description: 'This is an endpoint for fetching an events',
+  tags: ['Events'],
+  querystring: {
+    page: { type: 'number' },
+    size: { type: 'number' },
+    ...GET_ALL_EVENTS_QUERY_PARAMS
+  },
+  response: httpResponse('GET', RESPONSE_MODEL)
+}
+
+module.exports = { GET, EVENTS }
