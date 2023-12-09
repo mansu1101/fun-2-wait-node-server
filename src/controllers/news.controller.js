@@ -15,8 +15,23 @@ module.exports = (fastify) => {
         const { message, statusCode } = exception
 
         return reply
-          .status(statusCode)
-          .send(`An unxpected error occurred: ${message}`)
+          .status(statusCode || 500 )
+          .send(`An unxpected error occurred: ${message || exception}`)
+      }
+      return reply.send(httpResponseHandlerWithPagination(result))
+    },
+
+    getEvents: async (request, reply) => {
+      const { query } = request
+      let result
+      try {
+        result = await NewsService.getEvents(query)
+      } catch (exception) {
+        const { message, statusCode } = exception
+
+        return reply
+          .status(statusCode || 500 )
+          .send(`An unxpected error occurred: ${message || exception }`)
       }
       return reply.send(httpResponseHandlerWithPagination(result))
     }
