@@ -20,7 +20,7 @@ module.exports = (fastify) => {
      // headers: { 'x-api-key': config.WORLD_NEWS_API_KEY }
     })
 
-    data.key = config.GOOGLE_EVENTS_API_KEY
+    data.key = config.YOUTUBE_API_KEY
     const params = new URLSearchParams(data)
     const result = await instance.get(`/search-news?${params}`)
     return result?.data
@@ -28,11 +28,11 @@ module.exports = (fastify) => {
 
   const searchWeatherHistory = async (data) => {
     const instance = axios.create({
-      baseURL: 'https://youtube.googleapis.com/youtube/v3/videos',
+      baseURL: 'https://api.tomorrow.io/v4/weather/history/recent',
      // headers: { 'x-api-key': config.WORLD_NEWS_API_KEY }
     })
 
-    data.key = config.GOOGLE_EVENTS_API_KEY
+    data.apikey = config.WEATHER_API_KEY
     const params = new URLSearchParams(data)
     const result = await instance.get(`/search-news?${params}`)
     return result?.data

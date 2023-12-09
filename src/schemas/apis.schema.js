@@ -110,7 +110,7 @@ const NEWS_MODEL = {
 const VIDEOS_MODEL = {
   title: {
     type: "string",
-  }
+  },
 };
 
 const WEATHER_HISTORY_MODEL = {
@@ -122,8 +122,7 @@ const WEATHER_HISTORY_MODEL = {
   },
   text: {
     type: "string",
-  }
-
+  },
 };
 
 const GET_NEWS_QUERY_PARAMS = {
@@ -224,9 +223,14 @@ const GET_VIDEOS_QUERY_PARAMS = {
 };
 
 const GET_WEATHER_HISTORY_QUERY_PARAMS = {
-  q: {
-    description:
-      "query param like Coffee, Events in Austin, Events in Delhi etc..",
+  location: {
+    description: `Using the recent history weather API you can access historical weather forecasts for your location, including hourly history for the last 24 hours, and daily history for the last day.
+    For the location query parameter, we support multiple location types:
+    
+    Latitude and Longitude (Decimal degree) location=42.3478, -71.0466
+    City name location=new york
+    US zip location=10001 US(2-letter code based on ISO-3166)
+    UK postcode location=SW1`,
     type: "string",
   },
 };
@@ -262,7 +266,7 @@ const GET_VIDEOS = {
 const GET_WEATHER_HISTORY = {
   description: "This is an endpoint for fetching an weather history",
   tags: ["Apis"],
-  required: ["q"],
+  required: ["location"],
   querystring: {
     ...GET_WEATHER_HISTORY_QUERY_PARAMS,
   },
