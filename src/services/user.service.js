@@ -24,7 +24,7 @@ module.exports = ({ log }) => ({
       return await UserModel.paginate(buildGetDataQuery(data), {
         limit,
         offset
-      })
+      }) // [{}, {}]
     } catch (exception) {
       logError(
         log,

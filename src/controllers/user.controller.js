@@ -1,6 +1,6 @@
 module.exports = (fastify) => {
   const UserService = require('../services/user.service')(fastify)
-  
+
   const { generateRandomPassword } = require('../utils/utils')
   const {
     httpResponseHandler,
@@ -11,19 +11,10 @@ module.exports = (fastify) => {
       const { body } = request
       let result
       try {
-        let doAuto = false
         if (!body.password) {
           body.password = generateRandomPassword()
-          doAuto = true
         }
-
         result = await UserService.create(body)
-
-        // if (doAuto) {
-        //   MailService.autoWelcomeMail({ ...result, password: body.password })
-        // } else {
-        //   MailService.welcomeMail(result)
-        // }
       } catch (exception) {
         const { message, statusCode } = exception
 

@@ -6,7 +6,7 @@ module.exports = ({ log, config }) => {
     initUserRoles: async () => {
       const SYSTEM_USER_ROLES = [
         { name: 'SUPER_ADMIN' },
-        { name: 'AUDIENCE' },
+        { name: 'AUDIENCE' }
       ]
       try {
         const userRoles = await UserRoleModel.find({})
