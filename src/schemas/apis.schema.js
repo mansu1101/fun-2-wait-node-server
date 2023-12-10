@@ -590,12 +590,6 @@ const GET_EVENTS_QUERY_PARAMS = {
   },
 };
 
-const GET_VIDEO_BY_ID_QUERY_PARAMS = {
-  id: {
-    type: "string",
-    description: "fetch video ids by text",
-  },
-};
 
 const GET_VIDEOS_QUERY_PARAMS = {
   q: {
@@ -639,8 +633,10 @@ const GET_EVENTS = {
 const GET_VIDEO_BY_ID = {
   description: "This is an endpoint for fetching an existing videos",
   tags: ["Apis"],
-  querystring: {
-    ...GET_VIDEO_BY_ID_QUERY_PARAMS,
+  params: {
+    id: {
+      type: 'string'
+    },
   },
   response: httpResponse("GET", VIDEOS_MODEL),
 };
