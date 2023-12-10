@@ -14,10 +14,10 @@ const closeWithGrace = require('close-with-grace')
 // Instantiate Fastify with some config
 const app = Fastify({
   logger: true,
-  https: {
-    key: fs.readFileSync(path.join(__dirname, 'key.pem')),
-    cert: fs.readFileSync(path.join(__dirname, 'cert.pem'))
-  }
+  // https: {
+  //   key: fs.readFileSync(path.join(__dirname, 'key.pem')),
+  //   cert: fs.readFileSync(path.join(__dirname, 'cert.pem'))
+  // }
 })
 
 // Register your application as a normal plugin.
