@@ -107,10 +107,175 @@ const NEWS_MODEL = {
   },
 };
 
+
 const VIDEOS_MODEL = {
-  title: {
+  etag: {
     type: "string",
   },
+  kind: {
+    type: "string",
+  },
+  id: {
+    type: "object",
+    properties: {
+      kind: {
+        type: "string",
+      },
+      videoId: {
+        type: "string",
+      },
+    },
+  },
+  snippet: {
+    type: "object",
+    properties: {
+      publishedAt: {
+        type: "string",
+      },
+      publishTime: {
+        type: "string",
+      },
+      channelId: {
+        type: "string",
+      },
+      title: {
+        type: "string",
+      },
+      description: {
+        type: "string",
+      },
+      channelTitle: {
+        type: "string",
+      },
+      liveBroadcastContent: {
+        type: "string",
+      },
+      defaultAudioLanguage: {
+        type: 'string'
+      },
+      categoryId: {
+        type: 'string'
+      },
+      tags: {
+        type: 'array'
+      },
+      localized: {
+        type: 'object',
+        properties: {
+          title: {
+            type: 'string'
+          },
+          description: {
+            type: 'string'
+          }
+        }
+      },
+      thumbnails: {
+        type: "object",
+        properties: {
+          default: {
+            type: "object",
+            properties: {
+              url: {
+                type: "string",
+              },
+              width: {
+                type: "string",
+              },
+              height: {
+                type: "string",
+              },
+            },
+          },
+          medium: {
+            type: "object",
+            properties: {
+              url: {
+                type: "string",
+              },
+              width: {
+                type: "string",
+              },
+              height: {
+                type: "string",
+              },
+            },
+          },
+          high: {
+            type: "object",
+            properties: {
+              url: {
+                type: "string",
+              },
+              width: {
+                type: "string",
+              },
+              height: {
+                type: "string",
+              },
+            },
+          },
+          maxres: {
+            type: "object",
+            properties: {
+              url: {
+                type: "string",
+              },
+              width: {
+                type: "string",
+              },
+              height: {
+                type: "string",
+              },
+            },
+          },
+          standard: {
+            type: "object",
+            properties: {
+              url: {
+                type: "string",
+              },
+              width: {
+                type: "string",
+              },
+              height: {
+                type: "string",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+  contentDetails: {
+    type: 'object',
+    properties: {
+      duration: {
+        type: 'string'
+      },
+      dimension: {
+        type: 'string'
+      },
+      definition: {
+        type: 'string'
+      },
+      caption: {
+        type: 'boolean'
+      },
+      licensedContent: {
+        type: 'boolean'
+      },
+      projection: {
+        type: 'string'
+      },
+      contentRating: {
+        type: 'object'
+      },
+      videoUrl: {
+        type: 'string'
+      }
+    }
+  }
 };
 
 const WEATHER_HISTORY_MODEL = {
@@ -210,15 +375,17 @@ const GET_EVENTS_QUERY_PARAMS = {
   },
 };
 
+const GET_VIDEO_BY_ID_QUERY_PARAMS = {
+  id: {
+    type: "string",
+    description: "fetch video ids by text",
+  },
+};
+
 const GET_VIDEOS_QUERY_PARAMS = {
-  text: {
+  q: {
     type: "string",
-  },
-  authors: {
-    type: "string",
-  },
-  language: {
-    type: "string",
+    description: "fetch video ids by text",
   },
 };
 
@@ -254,6 +421,15 @@ const GET_EVENTS = {
   response: httpResponse("GET", EVENT_MODEL),
 };
 
+const GET_VIDEO_BY_ID = {
+  description: "This is an endpoint for fetching an existing videos",
+  tags: ["Apis"],
+  querystring: {
+    ...GET_VIDEO_BY_ID_QUERY_PARAMS,
+  },
+  response: httpResponse("GET", VIDEOS_MODEL),
+};
+
 const GET_VIDEOS = {
   description: "This is an endpoint for fetching an existing videos",
   tags: ["Apis"],
@@ -273,4 +449,10 @@ const GET_WEATHER_HISTORY = {
   response: httpResponse("GET", WEATHER_HISTORY_MODEL),
 };
 
-module.exports = { GET_NEWS, GET_EVENTS, GET_VIDEOS, GET_WEATHER_HISTORY };
+module.exports = {
+  GET_NEWS,
+  GET_EVENTS,
+  GET_VIDEOS,
+  GET_VIDEO_BY_ID,
+  GET_WEATHER_HISTORY,
+};
