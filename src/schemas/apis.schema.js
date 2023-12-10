@@ -107,7 +107,6 @@ const NEWS_MODEL = {
   },
 };
 
-
 const VIDEOS_MODEL = {
   etag: {
     type: "string",
@@ -151,24 +150,24 @@ const VIDEOS_MODEL = {
         type: "string",
       },
       defaultAudioLanguage: {
-        type: 'string'
+        type: "string",
       },
       categoryId: {
-        type: 'string'
+        type: "string",
       },
       tags: {
-        type: 'array'
+        type: "array",
       },
       localized: {
-        type: 'object',
+        type: "object",
         properties: {
           title: {
-            type: 'string'
+            type: "string",
           },
           description: {
-            type: 'string'
-          }
-        }
+            type: "string",
+          },
+        },
       },
       thumbnails: {
         type: "object",
@@ -248,45 +247,261 @@ const VIDEOS_MODEL = {
     },
   },
   contentDetails: {
-    type: 'object',
+    type: "object",
     properties: {
       duration: {
-        type: 'string'
+        type: "string",
       },
       dimension: {
-        type: 'string'
+        type: "string",
       },
       definition: {
-        type: 'string'
+        type: "string",
       },
       caption: {
-        type: 'boolean'
+        type: "boolean",
       },
       licensedContent: {
-        type: 'boolean'
+        type: "boolean",
       },
       projection: {
-        type: 'string'
+        type: "string",
       },
       contentRating: {
-        type: 'object'
+        type: "object",
       },
       videoUrl: {
-        type: 'string'
-      }
-    }
-  }
+        type: "string",
+      },
+    },
+  },
 };
 
 const WEATHER_HISTORY_MODEL = {
-  id: {
-    type: "string",
+  location: {
+    type: "object",
+    properties: {
+      lat: {
+        type: "number",
+      },
+      lon: {
+        type: "number",
+      },
+      name: {
+        type: "string",
+      },
+      type: {
+        type: "string",
+      },
+    },
   },
-  title: {
-    type: "string",
-  },
-  text: {
-    type: "string",
+  timelines: {
+    hourly: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: {
+          time: {
+            type: "string",
+          },
+          values: {
+            type: "object",
+            properties: {
+              cloudBase: {
+                type: "string",
+              },
+              cloudCeiling: {
+                type: "string",
+              },
+              cloudCover: {
+                type: "number",
+              },
+              dewPoint: {
+                type: "number",
+              },
+              evapotranspiration: {
+                type: "number",
+              },
+              freezingRainIntensity: {
+                type: "number",
+              },
+              humidity: {
+                type: "number",
+              },
+              iceAccumulation: {
+                type: "number",
+              },
+              iceAccumulationLwe: {
+                type: "number",
+              },
+              precipitationProbability: {
+                type: "number",
+              },
+              pressureSurfaceLevel: {
+                type: "number",
+              },
+              rainAccumulation: {
+                type: "number",
+              },
+              rainAccumulationLwe: {
+                type: "number",
+              },
+              rainIntensity: {
+                type: "number",
+              },
+              sleetAccumulation: {
+                type: "number",
+              },
+              sleetAccumulationLwe: {
+                type: "number",
+              },
+              sleetIntensity: {
+                type: "number",
+              },
+              snowAccumulation: {
+                type: "number",
+              },
+              snowAccumulationLwe: {
+                type: "number",
+              },
+              snowIntensity: {
+                type: "number",
+              },
+              temperature: {
+                type: "number",
+              },
+              temperatureApparent: {
+                type: "number",
+              },
+              uvHealthConcern: {
+                type: "number",
+              },
+              uvIndex: {
+                type: "number",
+              },
+              visibility: {
+                type: "number",
+              },
+              weatherCode: {
+                type: "number",
+              },
+              windDirection: {
+                type: "number",
+              },
+              windGust: {
+                type: "number",
+              },
+              windSpeed: {
+                type: "number",
+              },
+            },
+          },
+        },
+      },
+    },
+    daily: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: {
+          time: {
+            type: "string",
+          },
+          values: {
+            type: "object",
+            properties: {
+              cloudBase: {
+                type: "string",
+              },
+              cloudCeiling: {
+                type: "string",
+              },
+              cloudCover: {
+                type: "number",
+              },
+              dewPoint: {
+                type: "number",
+              },
+              evapotranspiration: {
+                type: "number",
+              },
+              freezingRainIntensity: {
+                type: "number",
+              },
+              humidity: {
+                type: "number",
+              },
+              iceAccumulation: {
+                type: "number",
+              },
+              iceAccumulationLwe: {
+                type: "number",
+              },
+              precipitationProbability: {
+                type: "number",
+              },
+              pressureSurfaceLevel: {
+                type: "number",
+              },
+              rainAccumulation: {
+                type: "number",
+              },
+              rainAccumulationLwe: {
+                type: "number",
+              },
+              rainIntensity: {
+                type: "number",
+              },
+              sleetAccumulation: {
+                type: "number",
+              },
+              sleetAccumulationLwe: {
+                type: "number",
+              },
+              sleetIntensity: {
+                type: "number",
+              },
+              snowAccumulation: {
+                type: "number",
+              },
+              snowAccumulationLwe: {
+                type: "number",
+              },
+              snowIntensity: {
+                type: "number",
+              },
+              temperature: {
+                type: "number",
+              },
+              temperatureApparent: {
+                type: "number",
+              },
+              uvHealthConcern: {
+                type: "number",
+              },
+              uvIndex: {
+                type: "number",
+              },
+              visibility: {
+                type: "number",
+              },
+              weatherCode: {
+                type: "number",
+              },
+              windDirection: {
+                type: "number",
+              },
+              windGust: {
+                type: "number",
+              },
+              windSpeed: {
+                type: "number",
+              },
+            },
+          },
+        },
+      },
+    },
   },
 };
 

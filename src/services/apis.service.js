@@ -53,13 +53,12 @@ module.exports = (fastify) => {
 
   const searchWeatherHistory = async (data) => {
     const instance = axios.create({
-      baseURL: "https://api.tomorrow.io/v4/weather/history/recent",
-      // headers: { 'x-api-key': config.WORLD_NEWS_API_KEY }
+      baseURL: "https://api.tomorrow.io/v4",
     });
 
     data.apikey = config.WEATHER_API_KEY;
     const params = new URLSearchParams(data);
-    const result = await instance.get(`/search-news?${params}`);
+    const result = await instance.get(`/weather/history/recent?${params}`);
     return result?.data;
   };
 
@@ -125,13 +124,10 @@ module.exports = (fastify) => {
     },
     getWeatherHistory: async (data) => {
       try {
-        const { news, available, offset, ...result } =
-          await searchWeatherHistory(data);
+        const result = await searchWeatherHistory(data);
 
         return {
-          docs: news,
-          totalDocs: available,
-          ...result,
+          docs: [result],
         };
       } catch (exception) {
         throw exception;
