@@ -108,22 +108,401 @@ const NEWS_MODEL = {
 };
 
 const VIDEOS_MODEL = {
-  title: {
+  etag: {
     type: "string",
-  }
+  },
+  kind: {
+    type: "string",
+  },
+  id: {
+    type: "object",
+    properties: {
+      kind: {
+        type: "string",
+      },
+      videoId: {
+        type: "string",
+      },
+    },
+  },
+  snippet: {
+    type: "object",
+    properties: {
+      publishedAt: {
+        type: "string",
+      },
+      publishTime: {
+        type: "string",
+      },
+      channelId: {
+        type: "string",
+      },
+      title: {
+        type: "string",
+      },
+      description: {
+        type: "string",
+      },
+      channelTitle: {
+        type: "string",
+      },
+      liveBroadcastContent: {
+        type: "string",
+      },
+      defaultAudioLanguage: {
+        type: "string",
+      },
+      categoryId: {
+        type: "string",
+      },
+      tags: {
+        type: "array",
+      },
+      localized: {
+        type: "object",
+        properties: {
+          title: {
+            type: "string",
+          },
+          description: {
+            type: "string",
+          },
+        },
+      },
+      thumbnails: {
+        type: "object",
+        properties: {
+          default: {
+            type: "object",
+            properties: {
+              url: {
+                type: "string",
+              },
+              width: {
+                type: "string",
+              },
+              height: {
+                type: "string",
+              },
+            },
+          },
+          medium: {
+            type: "object",
+            properties: {
+              url: {
+                type: "string",
+              },
+              width: {
+                type: "string",
+              },
+              height: {
+                type: "string",
+              },
+            },
+          },
+          high: {
+            type: "object",
+            properties: {
+              url: {
+                type: "string",
+              },
+              width: {
+                type: "string",
+              },
+              height: {
+                type: "string",
+              },
+            },
+          },
+          maxres: {
+            type: "object",
+            properties: {
+              url: {
+                type: "string",
+              },
+              width: {
+                type: "string",
+              },
+              height: {
+                type: "string",
+              },
+            },
+          },
+          standard: {
+            type: "object",
+            properties: {
+              url: {
+                type: "string",
+              },
+              width: {
+                type: "string",
+              },
+              height: {
+                type: "string",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+  contentDetails: {
+    type: "object",
+    properties: {
+      duration: {
+        type: "string",
+      },
+      dimension: {
+        type: "string",
+      },
+      definition: {
+        type: "string",
+      },
+      caption: {
+        type: "boolean",
+      },
+      licensedContent: {
+        type: "boolean",
+      },
+      projection: {
+        type: "string",
+      },
+      contentRating: {
+        type: "object",
+      },
+      videoUrl: {
+        type: "string",
+      },
+    },
+  },
 };
 
 const WEATHER_HISTORY_MODEL = {
-  id: {
-    type: "string",
+  location: {
+    type: "object",
+    properties: {
+      lat: {
+        type: "number",
+      },
+      lon: {
+        type: "number",
+      },
+      name: {
+        type: "string",
+      },
+      type: {
+        type: "string",
+      },
+    },
   },
-  title: {
-    type: "string",
+  timelines: {
+    hourly: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: {
+          time: {
+            type: "string",
+          },
+          values: {
+            type: "object",
+            properties: {
+              cloudBase: {
+                type: "string",
+              },
+              cloudCeiling: {
+                type: "string",
+              },
+              cloudCover: {
+                type: "number",
+              },
+              dewPoint: {
+                type: "number",
+              },
+              evapotranspiration: {
+                type: "number",
+              },
+              freezingRainIntensity: {
+                type: "number",
+              },
+              humidity: {
+                type: "number",
+              },
+              iceAccumulation: {
+                type: "number",
+              },
+              iceAccumulationLwe: {
+                type: "number",
+              },
+              precipitationProbability: {
+                type: "number",
+              },
+              pressureSurfaceLevel: {
+                type: "number",
+              },
+              rainAccumulation: {
+                type: "number",
+              },
+              rainAccumulationLwe: {
+                type: "number",
+              },
+              rainIntensity: {
+                type: "number",
+              },
+              sleetAccumulation: {
+                type: "number",
+              },
+              sleetAccumulationLwe: {
+                type: "number",
+              },
+              sleetIntensity: {
+                type: "number",
+              },
+              snowAccumulation: {
+                type: "number",
+              },
+              snowAccumulationLwe: {
+                type: "number",
+              },
+              snowIntensity: {
+                type: "number",
+              },
+              temperature: {
+                type: "number",
+              },
+              temperatureApparent: {
+                type: "number",
+              },
+              uvHealthConcern: {
+                type: "number",
+              },
+              uvIndex: {
+                type: "number",
+              },
+              visibility: {
+                type: "number",
+              },
+              weatherCode: {
+                type: "number",
+              },
+              windDirection: {
+                type: "number",
+              },
+              windGust: {
+                type: "number",
+              },
+              windSpeed: {
+                type: "number",
+              },
+            },
+          },
+        },
+      },
+    },
+    daily: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: {
+          time: {
+            type: "string",
+          },
+          values: {
+            type: "object",
+            properties: {
+              cloudBase: {
+                type: "string",
+              },
+              cloudCeiling: {
+                type: "string",
+              },
+              cloudCover: {
+                type: "number",
+              },
+              dewPoint: {
+                type: "number",
+              },
+              evapotranspiration: {
+                type: "number",
+              },
+              freezingRainIntensity: {
+                type: "number",
+              },
+              humidity: {
+                type: "number",
+              },
+              iceAccumulation: {
+                type: "number",
+              },
+              iceAccumulationLwe: {
+                type: "number",
+              },
+              precipitationProbability: {
+                type: "number",
+              },
+              pressureSurfaceLevel: {
+                type: "number",
+              },
+              rainAccumulation: {
+                type: "number",
+              },
+              rainAccumulationLwe: {
+                type: "number",
+              },
+              rainIntensity: {
+                type: "number",
+              },
+              sleetAccumulation: {
+                type: "number",
+              },
+              sleetAccumulationLwe: {
+                type: "number",
+              },
+              sleetIntensity: {
+                type: "number",
+              },
+              snowAccumulation: {
+                type: "number",
+              },
+              snowAccumulationLwe: {
+                type: "number",
+              },
+              snowIntensity: {
+                type: "number",
+              },
+              temperature: {
+                type: "number",
+              },
+              temperatureApparent: {
+                type: "number",
+              },
+              uvHealthConcern: {
+                type: "number",
+              },
+              uvIndex: {
+                type: "number",
+              },
+              visibility: {
+                type: "number",
+              },
+              weatherCode: {
+                type: "number",
+              },
+              windDirection: {
+                type: "number",
+              },
+              windGust: {
+                type: "number",
+              },
+              windSpeed: {
+                type: "number",
+              },
+            },
+          },
+        },
+      },
+    },
   },
-  text: {
-    type: "string",
-  }
-
 };
 
 const GET_NEWS_QUERY_PARAMS = {
@@ -211,22 +590,23 @@ const GET_EVENTS_QUERY_PARAMS = {
   },
 };
 
+
 const GET_VIDEOS_QUERY_PARAMS = {
-  text: {
+  q: {
     type: "string",
-  },
-  authors: {
-    type: "string",
-  },
-  language: {
-    type: "string",
+    description: "fetch video ids by text",
   },
 };
 
 const GET_WEATHER_HISTORY_QUERY_PARAMS = {
-  q: {
-    description:
-      "query param like Coffee, Events in Austin, Events in Delhi etc..",
+  location: {
+    description: `Using the recent history weather API you can access historical weather forecasts for your location, including hourly history for the last 24 hours, and daily history for the last day.
+    For the location query parameter, we support multiple location types:
+    
+    Latitude and Longitude (Decimal degree) location=42.3478, -71.0466
+    City name location=new york
+    US zip location=10001 US(2-letter code based on ISO-3166)
+    UK postcode location=SW1`,
     type: "string",
   },
 };
@@ -250,6 +630,17 @@ const GET_EVENTS = {
   response: httpResponse("GET", EVENT_MODEL),
 };
 
+const GET_VIDEO_BY_ID = {
+  description: "This is an endpoint for fetching an existing videos",
+  tags: ["Apis"],
+  params: {
+    id: {
+      type: 'string'
+    },
+  },
+  response: httpResponse("GET", VIDEOS_MODEL),
+};
+
 const GET_VIDEOS = {
   description: "This is an endpoint for fetching an existing videos",
   tags: ["Apis"],
@@ -262,11 +653,17 @@ const GET_VIDEOS = {
 const GET_WEATHER_HISTORY = {
   description: "This is an endpoint for fetching an weather history",
   tags: ["Apis"],
-  required: ["q"],
+  required: ["location"],
   querystring: {
     ...GET_WEATHER_HISTORY_QUERY_PARAMS,
   },
   response: httpResponse("GET", WEATHER_HISTORY_MODEL),
 };
 
-module.exports = { GET_NEWS, GET_EVENTS, GET_VIDEOS, GET_WEATHER_HISTORY };
+module.exports = {
+  GET_NEWS,
+  GET_EVENTS,
+  GET_VIDEOS,
+  GET_VIDEO_BY_ID,
+  GET_WEATHER_HISTORY,
+};

@@ -27,6 +27,13 @@ module.exports = async (fastify) => {
     handler: ApisController.getVideos
   })
 
+  fastify.route({
+    method: 'GET',
+    url: '/videos/:id',
+    onRequest: [fastify.authenticate],
+    schema: ApisSchema.GET_VIDEO_BY_ID,
+    handler: ApisController.getVideoById
+  })
 
   fastify.route({
     method: 'GET',
